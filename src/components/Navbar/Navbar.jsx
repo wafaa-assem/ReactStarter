@@ -20,7 +20,7 @@ export default function Navbar() {
 
 
   return (
-    <nav  className={`bg-gray-700 border-gray-200 dark:bg-gray-900 text-white fixed top-0 left-0 right-0 transition-all delay-100 ${scroll? `py-[-5px]`: `p-[12px]`}`}>
+    <nav  className={`bg-gray-700 border-gray-200 dark:bg-gray-900 text-white fixed z-50 top-0 left-0 right-0 transition-all delay-100 ${scroll? `py-[-5px]`: `p-[12px]`}`}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
         <Link to="" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
