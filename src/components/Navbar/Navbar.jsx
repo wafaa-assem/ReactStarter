@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scroll, setScroll] =useState(false)
+
   function toggleMenu(){
     setIsMenuOpen(!isMenuOpen);
   }
+
+  useEffect(()=>{
+    window.addEventListener('scroll', ()=>{
+      if (window.scrollY>30){
+        setScroll(true)
+      }else{
+        setScroll(false)
+      }
+    })
+  },[])
+
+
   return (
-    <nav className="bg-gray-700 border-gray-200 dark:bg-gray-900 text-white ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-7">
+    <nav  className={`bg-gray-700 border-gray-200 dark:bg-gray-900 text-white fixed top-0 left-0 right-0 transition-all delay-100 ${scroll? `py-[-5px]`: `p-[12px]`}`}>
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-4">
         <Link to="" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-2xl font-bold whitespace-nowrap dark:text-white">
             START FRAMEWORK
